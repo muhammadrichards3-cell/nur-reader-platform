@@ -1,0 +1,42 @@
+/* ==========================================
+   Nūr Reader Platform
+   Global Design System
+   Version: 0.1.0
+========================================== */
+
+/* ---------- Colour Palette ---------- */
+:root {
+    --primary: #1F5E3B;
+    --primary-dark: #17452C;
+    --secondary: #C8A44D;
+
+    --background: #F8F6F0;
+    --surface: #FFFFFF;
+
+    --text: #2F2F2F;
+    --text-light: #666666;
+
+    --success: #2E7D32;
+    --warning: #F9A825;
+    --danger: #C62828;
+
+    --radius: 12px;
+    --shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+/* ---------- Reset ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:var(--background);
+    color:var(--text);
+
+    font-family:'Inter',sans-serif;
+
+}
