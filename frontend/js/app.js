@@ -45,6 +45,16 @@ function initialiseRegistrationPage() {
 
     const addButton = document.getElementById("addChildButton");
 
+    const testButton = document.getElementById("testApiButton");
+
+    addButton.onclick = addChildCard;
+
+if (testButton) {
+
+    testButton.onclick = testApiConnection;
+
+}
+
     if (!addButton) return;
 
     childNumber = 0;
