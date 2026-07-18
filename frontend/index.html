@@ -37,35 +37,47 @@
             <ul class="nav flex-column">
 
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" href="#" data-view="dashboard">
                         <i class="bi bi-house-door-fill"></i>
                         Dashboard
                     </a>
                 </li>
 
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="#">
+    <a class="nav-link text-white"
+       href="#"
+       data-view="registration">
+
+        <i class="bi bi-person-plus-fill"></i>
+
+        Register Family
+
+    </a>
+</li>
+
+                <li class="nav-item mb-2">
+                    <a class="nav-link text-white" href="#" data-view="families">
                         <i class="bi bi-people-fill"></i>
                         Families
                     </a>
                 </li>
 
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" href="#" data-view="library">
                         <i class="bi bi-book-fill"></i>
                         Library
                     </a>
                 </li>
 
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" href="#" data-view="reader-passports">
                         <i class="bi bi-award-fill"></i>
                         Reader Passports
                     </a>
                 </li>
 
                 <li class="nav-item mb-2">
-                    <a class="nav-link text-white" href="#">
+                    <a class="nav-link text-white" href="#" data-view="settings">
                         <i class="bi bi-gear-fill"></i>
                         Settings
                     </a>
@@ -77,6 +89,14 @@
 
         <!-- Main Content -->
         <main class="col-md-9 col-lg-10 p-4">
+
+    <div id="app-content">
+
+        <h2>Loading...</h2>
+
+    </div>
+
+</main>
 
             <h1>Islamic Mobile Library</h1>
 
@@ -143,6 +163,10 @@
     </div>
 
 </div>
+
+<script src="services/api.js"></script>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>

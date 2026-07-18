@@ -1,0 +1,79 @@
+<h1>Register Family</h1>
+
+<p class="text-muted">
+Welcome to the Islamic Mobile Library registration system.
+</p>
+
+<hr>
+
+<form id="registration-form">
+
+    <div class="card mb-4">
+
+        <div class="card-header">
+            Parent / Guardian Information
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Parent / Guardian Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="parentName"
+                        required>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Mobile Number</label>
+                    <input
+                        type="tel"
+                        class="form-control"
+                        id="mobile">
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="email">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Residential Area</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="suburb">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        class="btn btn-success"
+        id="addChildButton">
+
+        + Add Child
+
+    </button>
+
+    <hr>
+
+<div id="children-container">
+
+</div>
+
+</form>
