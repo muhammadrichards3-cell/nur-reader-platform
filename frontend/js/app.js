@@ -1,28 +1,66 @@
-// ==========================================
+// ======================================
 // Nūr Reader Platform
 // app.js
-// ==========================================
+// Version 0.4.0
+// ======================================
 
+// -----------------------------
+// Load View
+// -----------------------------
 async function loadView(viewName) {
 
-    const response = await fetch(`views/${viewName}.html`);
+    try {
 
-    const html = await response.text();
+        const response = await fetch(`views/${viewName}.html`);
 
-    document.getElementById("app-content").innerHTML = html;
+        if (!response.ok) {
 
-if(viewName==="registration"){
+            throw new Error(`Unable to load ${viewName}.html`);
 
-    initialiseRegistrationPage();
+        }
+
+        const html = await response.text();
+
+        document.getElementById("app-content").innerHTML = html;
+
+        // Initialise page modules
+        switch (viewName) {
+
+    case "dashboard":
+        initialiseDashboardPage();
+        break;
+
+    case "registration":
+        initialiseRegistrationPage();
+        break;
 
 }
 
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        document.getElementById("app-content").innerHTML = `
+
+            <div class="alert alert-danger">
+
+                <h5>Unable to load page</h5>
+
+                <p>${error.message}</p>
+
+            </div>
+
+        `;
+
+    }
+
 }
 
-// Dashboard loads first
-loadView("dashboard");
-
+// -----------------------------
 // Navigation
+// -----------------------------
 document.addEventListener("click", function (event) {
 
     const menu = event.target.closest("[data-view]");
@@ -35,104 +73,11 @@ document.addEventListener("click", function (event) {
 
 });
 
-// ----------------------------
-// Child Registration Cards
-// ----------------------------
+// -----------------------------
+// Start Application
+// -----------------------------
+document.addEventListener("DOMContentLoaded", function () {
 
-let childNumber = 0;
+    loadView("dashboard");
 
-function initialiseRegistrationPage() {
-
-    const addButton = document.getElementById("addChildButton");
-
-    const testButton = document.getElementById("testApiButton");
-
-    addButton.onclick = addChildCard;
-
-if (testButton) {
-
-    testButton.onclick = testApiConnection;
-
-}
-
-    if (!addButton) return;
-
-    childNumber = 0;
-
-    document.getElementById("children-container").innerHTML = "";
-
-    addButton.onclick = addChildCard;
-
-}
-
-function addChildCard(){
-
-    childNumber++;
-
-    const container = document.getElementById("children-container");
-
-    container.insertAdjacentHTML("beforeend",`
-
-        <div class="card mt-4">
-
-            <div class="card-header">
-
-                Child ${childNumber}
-
-            </div>
-
-            <div class="card-body">
-
-                <div class="row">
-
-                    <div class="col-md-6 mb-3">
-
-                        <label class="form-label">
-
-                            Full Name
-
-                        </label>
-
-                        <input
-                            class="form-control"
-                            type="text">
-
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-
-                        <label class="form-label">
-
-                            Grade
-
-                        </label>
-
-                        <input
-                            class="form-control"
-                            type="text">
-
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-
-                        <label class="form-label">
-
-                            Date of Birth
-
-                        </label>
-
-                        <input
-                            class="form-control"
-                            type="date">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `);
-
-}
+});

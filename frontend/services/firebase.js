@@ -1,8 +1,10 @@
-// =======================================
+// ======================================
 // Nūr Reader Platform
-// Firebase Configuration
-// =======================================
+// Firebase Service
+// Version 0.3.0
+// ======================================
 
+// Firebase Configuration
 const firebaseConfig = {
 
     apiKey: "AIzaSyDlJehCOJdGYJHNJtacQNjnxtp7E0ejpUA",
@@ -19,10 +21,22 @@ const firebaseConfig = {
 
 };
 
-// Initialise Firebase
-firebase.initializeApp(firebaseConfig);
+let db = null;
 
-// Firestore Database
-const db = firebase.firestore();
+try {
 
-console.log("✅ Firebase Connected");
+    firebase.initializeApp(firebaseConfig);
+
+    db = firebase.firestore();
+
+    console.log("✅ Firebase Connected");
+
+}
+
+catch (error) {
+
+    console.error("❌ Firebase failed to initialise.");
+
+    console.error(error);
+
+}

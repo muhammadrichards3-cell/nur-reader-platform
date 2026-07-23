@@ -1,12 +1,14 @@
 <h1>Register Family</h1>
 
 <p class="text-muted">
-Welcome to the Islamic Mobile Library registration system.
+Register a parent or guardian together with one or more readers.
 </p>
 
 <hr>
 
 <form id="registration-form">
+
+    <!-- Parent Information -->
 
     <div class="card mb-4">
 
@@ -61,28 +63,35 @@ Welcome to the Islamic Mobile Library registration system.
 
     </div>
 
+    <!-- Children -->
+
+    <h4 class="mb-3">
+        Readers
+    </h4>
+
+    <div id="children-container"></div>
+
     <button
         type="button"
-        class="btn btn-success"
+        class="btn btn-outline-success mt-3"
         id="addChildButton">
 
-        + Add Child
+        <i class="bi bi-plus-circle"></i>
+
+        Add Reader
 
     </button>
 
-<button
-    type="button"
-    class="btn btn-outline-primary ms-2"
-    id="testApiButton">
-
-    Test API
-
-</button>
-
     <hr>
 
-<div id="children-container">
+    <button
+        type="submit"
+        class="btn btn-success btn-lg">
 
-</div>
+        <i class="bi bi-floppy"></i>
+
+        Save Registration
+
+    </button>
 
 </form>
