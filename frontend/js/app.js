@@ -1,66 +1,52 @@
-// ======================================
+// ==========================================
 // Nūr Reader Platform
 // app.js
-// Version 0.4.0
-// ======================================
+// Version 1.1.0
+// ==========================================
 
-// -----------------------------
-// Load View
-// -----------------------------
 async function loadView(viewName) {
 
-    try {
+    const response = await fetch(`views/${viewName}.html`);
 
-        const response = await fetch(`views/${viewName}.html`);
+    const html = await response.text();
 
-        if (!response.ok) {
+    document.getElementById("app-content").innerHTML = html;
 
-            throw new Error(`Unable to load ${viewName}.html`);
+    // -----------------------------
+    // Initialise Views
+    // -----------------------------
 
-        }
+    switch (viewName) {
 
-        const html = await response.text();
+        case "dashboard":
+            // Dashboard currently has no initialisation
+            break;
 
-        document.getElementById("app-content").innerHTML = html;
+        case "registration":
+            initialiseRegistrationPage();
+            break;
 
-        // Initialise page modules
-        switch (viewName) {
+        case "families":
+            initialiseFamiliesPage();
+            break;
 
-    case "dashboard":
-        initialiseDashboardPage();
-        break;
-
-    case "registration":
-        initialiseRegistrationPage();
-        break;
-
-}
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        document.getElementById("app-content").innerHTML = `
-
-            <div class="alert alert-danger">
-
-                <h5>Unable to load page</h5>
-
-                <p>${error.message}</p>
-
-            </div>
-
-        `;
+        default:
+            break;
 
     }
 
 }
 
-// -----------------------------
-// Navigation
-// -----------------------------
+// ==========================================
+// Load Dashboard First
+// ==========================================
+
+loadView("dashboard");
+
+// ==========================================
+// Sidebar Navigation
+// ==========================================
+
 document.addEventListener("click", function (event) {
 
     const menu = event.target.closest("[data-view]");
@@ -70,14 +56,5 @@ document.addEventListener("click", function (event) {
     event.preventDefault();
 
     loadView(menu.dataset.view);
-
-});
-
-// -----------------------------
-// Start Application
-// -----------------------------
-document.addEventListener("DOMContentLoaded", function () {
-
-    loadView("dashboard");
 
 });

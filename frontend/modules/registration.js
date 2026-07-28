@@ -1,39 +1,43 @@
 // ======================================
 // Nūr Reader Platform
 // Registration Module
-// Version 0.4.0
+// Version 0.6.0
 // ======================================
 
 let childNumber = 0;
 
-// Initialise the registration page
+// ======================================
+// Initialise Registration Page
+// ======================================
+
 function initialiseRegistrationPage() {
 
     childNumber = 0;
 
-    const container = document.getElementById("children-container");
-    container.innerHTML = "";
+    document.getElementById("children-container").innerHTML = "";
 
     document
         .getElementById("addChildButton")
         .addEventListener("click", addChildCard);
 
-    // Add the first reader automatically
+    document
+        .getElementById("registration-form")
+        .addEventListener("submit", saveRegistration);
+
     addChildCard();
 
 }
 
-// --------------------------------------
+// ======================================
 // Add Reader Card
-// --------------------------------------
+// ======================================
 
 function addChildCard() {
 
     childNumber++;
 
-    const container = document.getElementById("children-container");
-
-    container.insertAdjacentHTML("beforeend", `
+    document.getElementById("children-container")
+        .insertAdjacentHTML("beforeend", `
 
         <div class="card mb-3">
 
@@ -56,7 +60,7 @@ function addChildCard() {
                         <input
                             type="text"
                             class="form-control"
-                            id="childName_${childNumber}"
+                            id="childName${childNumber}"
                             required>
 
                     </div>
@@ -70,7 +74,7 @@ function addChildCard() {
                         <input
                             type="text"
                             class="form-control"
-                            id="grade_${childNumber}">
+                            id="childGrade${childNumber}">
 
                     </div>
 
@@ -83,7 +87,7 @@ function addChildCard() {
                         <input
                             type="date"
                             class="form-control"
-                            id="dob_${childNumber}">
+                            id="childDob${childNumber}">
 
                     </div>
 
@@ -94,5 +98,103 @@ function addChildCard() {
         </div>
 
     `);
+
+}
+
+// ======================================
+// Save Registration
+// ======================================
+
+async function saveRegistration(event) {
+
+    event.preventDefault();
+
+    try {
+
+        const parentName = document.getElementById("parentName").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const suburb = document.getElementById("suburb").value.trim();
+
+        if (parentName === "") {
+
+            alert("Please enter the parent or guardian's name.");
+            return;
+
+        }
+
+        const familyId = await getNextFamilyId();
+
+        const family = {
+
+            familyId,
+            parentName,
+            mobile,
+            email,
+            suburb,
+            registeredDate: getCurrentDate(),
+            status: "Active"
+
+        };
+
+        await db
+            .collection("families")
+            .doc(familyId)
+            .set(family);
+
+        // ==========================
+        // Save Readers
+        // ==========================
+
+        for (let i = 1; i <= childNumber; i++) {
+
+            const readerName = document.getElementById(`childName${i}`).value.trim();
+            const grade = document.getElementById(`childGrade${i}`).value.trim();
+            const dob = document.getElementById(`childDob${i}`).value;
+
+            if (readerName === "") continue;
+
+            const readerId = await getNextReaderId();
+
+            const reader = {
+
+                readerId,
+                familyId,
+                fullName: readerName,
+                grade,
+                dateOfBirth: dob,
+                status: "Active",
+                booksRead: 0,
+                booksBorrowed: 0,
+                badge: "Seedling"
+
+            };
+
+            await db
+                .collection("readers")
+                .doc(readerId)
+                .set(reader);
+
+        }
+
+        alert(`✅ ${familyId} registered successfully.`);
+
+        document.getElementById("registration-form").reset();
+
+        childNumber = 0;
+
+        document.getElementById("children-container").innerHTML = "";
+
+        addChildCard();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
 
 }
