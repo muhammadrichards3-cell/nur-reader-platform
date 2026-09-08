@@ -6,9 +6,9 @@
 
 async function initialiseFamiliesPage() {
 
-    const container = document.getElementById("families-table-body");
+    const tableBody = document.getElementById("families-table-body");
 
-    container.innerHTML = `
+    tableBody.innerHTML = `
         <tr>
             <td colspan="6" class="text-center">
                 Loading families...
@@ -25,7 +25,7 @@ async function initialiseFamiliesPage() {
 
         if (snapshot.empty) {
 
-            container.innerHTML = `
+            tableBody.innerHTML = `
                 <tr>
                     <td colspan="6" class="text-center">
                         No families registered.
@@ -37,13 +37,13 @@ async function initialiseFamiliesPage() {
 
         }
 
-        container.innerHTML = "";
+        tableBody.innerHTML = "";
 
         snapshot.forEach(doc => {
 
             const family = doc.data();
 
-            container.insertAdjacentHTML("beforeend", `
+            tableBody.insertAdjacentHTML("beforeend", `
 
                 <tr>
 
@@ -60,7 +60,7 @@ async function initialiseFamiliesPage() {
                     <td>
 
                         <button
-                            class="btn btn-sm btn-success">
+                            class="btn btn-success btn-sm">
 
                             View
 
@@ -80,10 +80,13 @@ async function initialiseFamiliesPage() {
 
         console.error(error);
 
-        container.innerHTML = `
+        tableBody.innerHTML = `
             <tr>
-                <td colspan="6" class="text-danger text-center">
+                <td colspan="6"
+                    class="text-danger text-center">
+
                     Unable to load families.
+
                 </td>
             </tr>
         `;
