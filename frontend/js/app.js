@@ -1,7 +1,49 @@
 // ==========================================
 // Nūr Reader Platform
 // app.js
-// Version 1.1.0
+// Version 1.3.0
+// ==========================================
+
+
+// ==========================================
+// Render Navigation
+// ==========================================
+
+function renderNavigation() {
+
+    const navigation = document.getElementById("main-navigation");
+
+    if (!navigation) return;
+
+    navigation.innerHTML = "";
+
+    NUR_APP.navigation.forEach(function (item) {
+
+        const listItem = document.createElement("li");
+
+        listItem.className = "nav-item mb-2";
+
+        listItem.innerHTML = `
+            <a href="#"
+               class="nav-link text-white"
+               data-view="${item.view}">
+
+                <i class="bi ${item.icon}"></i>
+
+                ${item.label}
+
+            </a>
+        `;
+
+        navigation.appendChild(listItem);
+
+    });
+
+}
+
+
+// ==========================================
+// Load View
 // ==========================================
 
 async function loadView(viewName) {
@@ -37,11 +79,26 @@ async function loadView(viewName) {
 
 }
 
+
 // ==========================================
-// Load Dashboard First
+// Initialise Application
 // ==========================================
 
-loadView("dashboard");
+function initialiseApplication() {
+
+    renderNavigation();
+
+    loadView(NUR_APP.defaultView);
+
+}
+
+
+// ==========================================
+// Start Application
+// ==========================================
+
+initialiseApplication();
+
 
 // ==========================================
 // Sidebar Navigation
