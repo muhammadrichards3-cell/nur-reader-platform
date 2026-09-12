@@ -1,46 +1,8 @@
 // ==========================================
 // Nūr Reader Platform
-// app.js
-// Version 1.3.0
+// Application Controller
+// Version 1.2.1
 // ==========================================
-
-
-// ==========================================
-// Render Navigation
-// ==========================================
-
-function renderNavigation() {
-
-    const navigation = document.getElementById("main-navigation");
-
-    if (!navigation) return;
-
-    navigation.innerHTML = "";
-
-    NUR_APP.navigation.forEach(function (item) {
-
-        const listItem = document.createElement("li");
-
-        listItem.className = "nav-item mb-2";
-
-        listItem.innerHTML = `
-            <a href="#"
-               class="nav-link text-white"
-               data-view="${item.view}">
-
-                <i class="bi ${item.icon}"></i>
-
-                ${item.label}
-
-            </a>
-        `;
-
-        navigation.appendChild(listItem);
-
-    });
-
-}
-
 
 // ==========================================
 // Load View
@@ -48,32 +10,106 @@ function renderNavigation() {
 
 async function loadView(viewName) {
 
-    const response = await fetch(`views/${viewName}.html`);
+    const content = document.getElementById("app-content");
 
-    const html = await response.text();
+    if (!content) return;
 
-    document.getElementById("app-content").innerHTML = html;
+    try {
 
-    // -----------------------------
-    // Initialise Views
-    // -----------------------------
+        const response = await fetch(`views/${viewName}.html`);
 
-    switch (viewName) {
+        if (!response.ok) {
+            throw new Error(`View "${viewName}" could not be loaded.`);
+        }
 
-        case "dashboard":
-            // Dashboard currently has no initialisation
-            break;
+        const html = await response.text();
 
-        case "registration":
-            initialiseRegistrationPage();
-            break;
+        content.innerHTML = html;
 
-        case "families":
-            initialiseFamiliesPage();
-            break;
+        // --------------------------------------
+        // Initialise Existing View Modules
+        // --------------------------------------
 
-        default:
-            break;
+        switch (viewName) {
+
+            case "dashboard":
+
+                if (typeof initialiseDashboardPage === "function") {
+                    initialiseDashboardPage();
+                }
+
+                break;
+
+
+            case "registration":
+
+                if (typeof initialiseRegistrationPage === "function") {
+                    initialiseRegistrationPage();
+                }
+
+                break;
+
+
+            case "families":
+
+                if (typeof initialiseFamiliesPage === "function") {
+                    initialiseFamiliesPage();
+                }
+
+                break;
+
+
+            case "library":
+
+                if (typeof initialiseLibraryPage === "function") {
+                    initialiseLibraryPage();
+                }
+
+                break;
+
+
+            case "reader-passports":
+
+                if (typeof initialiseReaderPassportsPage === "function") {
+                    initialiseReaderPassportsPage();
+                }
+
+                break;
+
+
+            case "settings":
+
+                if (typeof initialiseSettingsPage === "function") {
+                    initialiseSettingsPage();
+                }
+
+                break;
+
+
+            default:
+                break;
+
+        }
+
+    } catch (error) {
+
+        console.error("Nūr Platform View Error:", error);
+
+        content.innerHTML = `
+
+            <div class="alert alert-danger" role="alert">
+
+                <h5 class="alert-heading">
+                    Unable to load this page
+                </h5>
+
+                <p class="mb-0">
+                    ${error.message}
+                </p>
+
+            </div>
+
+        `;
 
     }
 
@@ -81,37 +117,7 @@ async function loadView(viewName) {
 
 
 // ==========================================
-// Initialise Application
+// Load Initial View
 // ==========================================
 
-function initialiseApplication() {
-
-    renderNavigation();
-
-    loadView(NUR_APP.defaultView);
-
-}
-
-
-// ==========================================
-// Start Application
-// ==========================================
-
-initialiseApplication();
-
-
-// ==========================================
-// Sidebar Navigation
-// ==========================================
-
-document.addEventListener("click", function (event) {
-
-    const menu = event.target.closest("[data-view]");
-
-    if (!menu) return;
-
-    event.preventDefault();
-
-    loadView(menu.dataset.view);
-
-});
+loadView("dashboard");
