@@ -67,6 +67,9 @@ async function loadView(viewName) {
 
                 break;
 
+            case "loans":
+                    initialiseLoansPage();
+                break;
 
             case "reader-passports":
 
