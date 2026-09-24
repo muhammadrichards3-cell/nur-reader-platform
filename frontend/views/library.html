@@ -1,5 +1,65 @@
-<h1>Library Catalogue</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
 
-<p class="text-muted">
-Browse and search books.
-</p>
+    <div>
+        <h1 class="mb-1">Library Catalogue</h1>
+
+        <p class="text-muted mb-0">
+            Browse and search books.
+        </p>
+    </div>
+
+    <span class="badge bg-success">
+        Nūr Library
+    </span>
+
+</div>
+
+
+<!-- Search -->
+
+<div class="card shadow-sm mb-4">
+
+    <div class="card-body">
+
+        <label
+            for="bookSearch"
+            class="form-label"
+        >
+            Search Library
+        </label>
+
+        <input
+            type="search"
+            id="bookSearch"
+            class="form-control"
+            placeholder="Search by title, author or category..."
+        >
+
+    </div>
+
+</div>
+
+
+<!-- Catalogue -->
+
+<div id="libraryBooksContainer">
+
+    <div class="text-center py-5">
+
+        <div
+            class="spinner-border text-success"
+            role="status"
+        ></div>
+
+        <p class="text-muted mt-3">
+            Loading library catalogue...
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Book Details -->
+
+<div id="bookDetailContainer"></div>
