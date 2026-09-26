@@ -26,6 +26,13 @@ async function loadView(viewName) {
 
         content.innerHTML = html;
 
+document.getElementById(
+    "app-content"
+).dataset.view = viewName;
+
+updateSidebarActiveState(
+    viewName
+);        
         // --------------------------------------
         // Initialise Existing View Modules
         // --------------------------------------
@@ -71,6 +78,26 @@ async function loadView(viewName) {
                     initialiseLoansPage();
                 break;
 
+            case "learner-progress":
+                    initialiseLearnerProgressPage();
+                break;
+
+            case "attendance":
+                    initialiseAttendancePage();
+                break;
+
+            case "curriculum":
+                    initialiseCurriculumPage();
+                break;
+
+            case "quran-progress":
+                    initialiseQuranProgressPage();
+                break;
+
+                case "dua-progress":
+                    initialiseDuaProgressPage();
+                break;
+                
             case "reader-passports":
 
                 if (typeof initialiseReaderPassportsPage === "function") {

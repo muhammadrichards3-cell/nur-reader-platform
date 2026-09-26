@@ -141,3 +141,457 @@ hr{
     font-weight:500;
 
 }
+
+/* ==========================================
+   NŪR SIDEBAR
+   F014.x Visual System
+   ========================================== */
+
+
+#app-sidebar {
+
+    padding: 0 !important;
+
+    min-height: 100vh;
+
+    background:
+        #123b32;
+
+}
+
+
+.nur-sidebar {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        #123b32;
+
+    color: #f8f4ea;
+
+    padding:
+        28px 18px 18px 18px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ==========================================
+   BRAND
+   ========================================== */
+
+
+.nur-sidebar-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        4px 8px 24px 8px;
+
+}
+
+
+.nur-brand-mark {
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        #d4af63;
+
+    color:
+        #123b32;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.15);
+
+}
+
+
+.nur-brand-name {
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    letter-spacing:
+        0.04em;
+
+    line-height: 1.1;
+
+}
+
+
+.nur-brand-subtitle {
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color:
+        rgba(248, 244, 234, 0.62);
+
+    letter-spacing:
+        0.04em;
+
+}
+
+
+/* ==========================================
+   SECTION
+   ========================================== */
+
+
+.nur-sidebar-section {
+
+    margin-top: 12px;
+
+}
+
+
+.nur-sidebar-label {
+
+    padding:
+        0 10px 7px 10px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing:
+        0.14em;
+
+    color:
+        rgba(248, 244, 234, 0.42);
+
+}
+
+
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+
+
+.nur-sidebar-nav {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+.nur-sidebar-nav li {
+
+    margin-bottom: 3px;
+
+}
+
+
+.nur-sidebar-nav a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 44px;
+
+    padding:
+        8px 11px;
+
+    border-radius: 10px;
+
+    color:
+        rgba(248, 244, 234, 0.78);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition:
+        background-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.18s ease;
+
+}
+
+
+.nur-sidebar-nav a:hover {
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    color:
+        #ffffff;
+
+    transform:
+        translateX(2px);
+
+}
+
+
+.nur-sidebar-nav a.active {
+
+    background:
+        rgba(212, 175, 99, 0.16);
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        inset 3px 0 0 #d4af63;
+
+}
+
+
+/* ==========================================
+   ICONS
+   ========================================== */
+
+
+.nur-nav-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    color:
+        rgba(248, 244, 234, 0.58);
+
+    font-size: 15px;
+
+}
+
+
+.nur-sidebar-nav a:hover
+.nur-nav-icon {
+
+    color:
+        #d4af63;
+
+}
+
+
+.nur-sidebar-nav a.active
+.nur-nav-icon {
+
+    color:
+        #d4af63;
+
+}
+
+
+.nur-nav-text {
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+
+.nur-sidebar-footer {
+
+    margin-top: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    padding:
+        15px 10px 4px 10px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+.nur-sidebar-footer-mark {
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background:
+        rgba(212, 175, 99, 0.12);
+
+    color:
+        #d4af63;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-weight: 700;
+
+}
+
+
+.nur-sidebar-footer-title {
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color:
+        rgba(248, 244, 234, 0.76);
+
+}
+
+
+.nur-sidebar-footer-text {
+
+    margin-top: 2px;
+
+    font-size: 9px;
+
+    line-height: 1.35;
+
+    color:
+        rgba(248, 244, 234, 0.40);
+
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+
+@media (
+    max-width: 767.98px
+) {
+
+    #app-sidebar {
+
+        min-height: auto;
+
+    }
+
+
+    .nur-sidebar {
+
+        min-height: auto;
+
+        padding:
+            15px;
+
+    }
+
+
+    .nur-sidebar-brand {
+
+        padding-bottom:
+            15px;
+
+    }
+
+
+    .nur-sidebar-section {
+
+        margin-top: 8px;
+
+    }
+
+
+    .nur-sidebar-nav {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 4px;
+
+    }
+
+
+    .nur-sidebar-nav li {
+
+        margin-bottom: 0;
+
+    }
+
+
+    .nur-sidebar-nav a {
+
+        min-height: 40px;
+
+        padding:
+            7px 9px;
+
+    }
+
+
+    .nur-sidebar-footer {
+
+        display: none;
+
+    }
+
+}

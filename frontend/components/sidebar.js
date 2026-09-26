@@ -1,13 +1,9 @@
 // ==========================================
 // Nūr Reader Platform
 // Sidebar Component
-// Version 1.2.0
+// F014.x
 // ==========================================
 
-
-// ==========================================
-// Initialise Sidebar
-// ==========================================
 
 function initialiseSidebar() {
 
@@ -28,27 +24,25 @@ function initialiseSidebar() {
 
     sidebar.innerHTML = `
 
-        <nav class="sidebar h-100">
+        <div class="nur-sidebar">
 
             <!-- ==================================
                  BRAND
             =================================== -->
 
-            <div class="brand">
+            <div class="nur-sidebar-brand">
 
-                <div class="brand-mark">
-
-                    <span>ن</span>
-
+                <div class="nur-brand-mark">
+                    ن
                 </div>
 
-                <div>
+                <div class="nur-brand-text">
 
-                    <div class="brand-name">
+                    <div class="nur-brand-name">
                         Nūr
                     </div>
 
-                    <div class="brand-tagline">
+                    <div class="nur-brand-subtitle">
                         Reader Platform
                     </div>
 
@@ -57,184 +51,368 @@ function initialiseSidebar() {
             </div>
 
 
-            <hr class="nav-divider">
-
-
             <!-- ==================================
                  NAVIGATION
             =================================== -->
 
-            <ul class="snav list-unstyled mb-0">
+            <div class="nur-sidebar-section">
+
+                <div class="nur-sidebar-label">
+                    MAIN
+                </div>
 
 
-                <!-- Dashboard -->
-
-                <li>
-
-                    <a
-                        href="#"
-                        data-view="dashboard"
-                    >
-
-                        <i class="bi bi-grid-1x2-fill"></i>
-
-                        <span>
-                            Dashboard
-                        </span>
-
-                    </a>
-
-                </li>
+                <ul class="nur-sidebar-nav">
 
 
-                <!-- Registration -->
+                    <!-- Dashboard -->
 
-                <li>
+                    <li>
 
-                    <a
-                        href="#"
-                        data-view="registration"
-                    >
+                        <a
+                            href="#"
+                            data-view="dashboard"
+                        >
 
-                        <i class="bi bi-person-plus-fill"></i>
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                            </span>
 
-                        <span>
-                            Register Family
-                        </span>
+                            <span class="nur-nav-text">
+                                Dashboard
+                            </span>
 
-                    </a>
+                        </a>
 
-                </li>
-
-
-                <!-- Families -->
-
-                <li>
-
-                    <a
-                        href="#"
-                        data-view="families"
-                    >
-
-                        <i class="bi bi-people-fill"></i>
-
-                        <span>
-                            Families
-                        </span>
-
-                    </a>
-
-                </li>
+                    </li>
 
 
-                <!-- Library -->
+                    <!-- Register Family -->
 
-                <li>
+                    <li>
 
-                    <a
-                        href="#"
-                        data-view="library"
-                    >
+                        <a
+                            href="#"
+                            data-view="registration"
+                        >
 
-                        <i class="bi bi-book-fill"></i>
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-person-plus-fill"></i>
+                            </span>
 
-                        <span>
-                            Library
-                        </span>
+                            <span class="nur-nav-text">
+                                Register Family
+                            </span>
 
-                    </a>
+                        </a>
 
-                </li>
-
-
-                <!-- Loans -->
-
-                <li>
-
-                    <a
-                        href="#"
-                        data-view="loans"
-                    >
-
-                        <i class="bi bi-arrow-left-right"></i>
-
-                        <span>
-                            Loans & Circulation
-                        </span>
-
-                    </a>
-
-                </li>
+                    </li>
 
 
-                <!-- Reader Passports -->
+                    <!-- Families -->
 
-                <li>
+                    <li>
 
-                    <a
-                        href="#"
-                        data-view="reader-passports"
-                    >
+                        <a
+                            href="#"
+                            data-view="families"
+                        >
 
-                        <i class="bi bi-award-fill"></i>
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </span>
 
-                        <span>
-                            Reader Passports
-                        </span>
+                            <span class="nur-nav-text">
+                                Families
+                            </span>
 
-                    </a>
+                        </a>
 
-                </li>
-
-
-                <!-- Settings -->
-
-                <li>
-
-                    <a
-                        href="#"
-                        data-view="settings"
-                    >
-
-                        <i class="bi bi-gear-fill"></i>
-
-                        <span>
-                            Settings
-                        </span>
-
-                    </a>
-
-                </li>
+                    </li>
 
 
-            </ul>
+                </ul>
+
+            </div>
+
+
+            <!-- ==================================
+                 LIBRARY
+            =================================== -->
+
+            <div class="nur-sidebar-section">
+
+                <div class="nur-sidebar-label">
+                    LIBRARY
+                </div>
+
+
+                <ul class="nur-sidebar-nav">
+
+
+                    <!-- Library -->
+
+                    <li>
+
+                        <a
+                            href="#"
+                            data-view="library"
+                        >
+
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-book-fill"></i>
+                            </span>
+
+                            <span class="nur-nav-text">
+                                Library
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- Loans -->
+
+                    <li>
+
+                        <a
+                            href="#"
+                            data-view="loans"
+                        >
+
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-arrow-left-right"></i>
+                            </span>
+
+                            <span class="nur-nav-text">
+                                Loans & Circulation
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- Reader Passports -->
+
+                    <li>
+
+                        <a
+                            href="#"
+                            data-view="reader-passports"
+                        >
+
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-award-fill"></i>
+                            </span>
+
+                            <span class="nur-nav-text">
+                                Reader Passports
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+            <!-- ==================================
+                 MADRASSAH
+            =================================== -->
+
+            <div class="nur-sidebar-section">
+
+                <div class="nur-sidebar-label">
+                    MADRASSAH
+                </div>
+
+
+                <ul class="nur-sidebar-nav">
+
+
+                    <!-- Learner Progress -->
+
+                    <li>
+
+                        <a
+                            href="#"
+                            data-view="learner-progress"
+                        >
+
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-mortarboard-fill"></i>
+                            </span>
+
+                            <span class="nur-nav-text">
+                                Learner Progress
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- Attendance -->
+
+                    <li>
+
+                        <a
+                            href="#"
+                            data-view="attendance"
+                        >
+
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-calendar-check-fill"></i>
+                            </span>
+
+                            <span class="nur-nav-text">
+                                Attendance
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- Curriculum -->
+
+                    <li>
+
+                        <a
+                            href="#"
+                            data-view="curriculum"
+                        >
+
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-journal-check"></i>
+                            </span>
+
+                            <span class="nur-nav-text">
+                                Curriculum
+                            </span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+    <a
+        href="#"
+        data-view="quran-progress"
+    >
+
+        <span class="nur-nav-icon">
+            <i class="bi bi-book-half"></i>
+        </span>
+
+        <span class="nur-nav-text">
+            Qur'an Progress
+        </span>
+
+    </a>
+
+</li>
+
+<li>
+
+    <a
+        href="#"
+        data-view="dua-progress"
+    >
+
+        <span class="nur-nav-icon">
+            <i class="bi bi-bookmark-heart-fill"></i>
+        </span>
+
+        <span class="nur-nav-text">
+            Duʿā Progress
+        </span>
+
+    </a>
+
+</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ==================================
+                 SYSTEM
+            =================================== -->
+
+            <div class="nur-sidebar-section">
+
+                <div class="nur-sidebar-label">
+                    SYSTEM
+                </div>
+
+
+                <ul class="nur-sidebar-nav">
+
+
+                    <!-- Settings -->
+
+                    <li>
+
+                        <a
+                            href="#"
+                            data-view="settings"
+                        >
+
+                            <span class="nur-nav-icon">
+                                <i class="bi bi-gear-fill"></i>
+                            </span>
+
+                            <span class="nur-nav-text">
+                                Settings
+                            </span>
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
 
 
             <!-- ==================================
                  SIDEBAR FOOTER
             =================================== -->
 
-            <div class="sidebar-foot mt-auto">
+            <div class="nur-sidebar-footer">
 
-                <div class="small">
-                    Nūr Reader Platform
+                <div class="nur-sidebar-footer-mark">
+                    ن
                 </div>
 
-                <div class="small opacity-75">
-                    Every story lit is a light passed on.
+                <div>
+
+                    <div class="nur-sidebar-footer-title">
+                        Nūr Reader Platform
+                    </div>
+
+                    <div class="nur-sidebar-footer-text">
+                        Beneficial knowledge,
+                        one reader at a time.
+                    </div>
+
                 </div>
 
             </div>
 
-
-        </nav>
+        </div>
 
     `;
 
-
-    // ======================================
-    // Active Navigation
-    // ======================================
 
     updateSidebarActiveState(
         getCurrentView()
@@ -244,24 +422,35 @@ function initialiseSidebar() {
 
 
 // ==========================================
-// Get Current View
+// Determine Current View
 // ==========================================
 
 function getCurrentView() {
 
-    const activeView =
-        document.querySelector(
-            "#app-content"
-        )?.dataset?.view;
+    const content =
+        document.getElementById(
+            "app-content"
+        );
 
 
-    return activeView || "dashboard";
+    if (
+        content &&
+        content.dataset &&
+        content.dataset.view
+    ) {
+
+        return content.dataset.view;
+
+    }
+
+
+    return "dashboard";
 
 }
 
 
 // ==========================================
-// Update Active State
+// Update Active Navigation
 // ==========================================
 
 function updateSidebarActiveState(
@@ -277,13 +466,9 @@ function updateSidebarActiveState(
     links.forEach(
         link => {
 
-            const isActive =
-                link.dataset.view === viewName;
-
-
             link.classList.toggle(
                 "active",
-                isActive
+                link.dataset.view === viewName
             );
 
         }
@@ -293,7 +478,7 @@ function updateSidebarActiveState(
 
 
 // ==========================================
-// Listen for Navigation
+// Navigation Listener
 // ==========================================
 
 document.addEventListener(
@@ -306,7 +491,11 @@ document.addEventListener(
             );
 
 
-        if (!link) return;
+        if (!link) {
+
+            return;
+
+        }
 
 
         updateSidebarActiveState(
@@ -329,7 +518,7 @@ function initializeSidebar() {
 
 
 // ==========================================
-// Automatic Initialisation
+// Initialise
 // ==========================================
 
 if (
